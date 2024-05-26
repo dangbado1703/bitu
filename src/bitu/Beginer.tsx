@@ -18,8 +18,8 @@ const Beginer = () => {
         <div className="process">
           <span>Mục tiêu học</span>
           <div className="dot">
-            {Array.from({ length: 10 }, () => (
-              <div className="dot-item" />
+            {Array.from({ length: 10 }, (_, index) => (
+              <div className="dot-item" key={index} />
             ))}
           </div>
           <span>3/17</span>

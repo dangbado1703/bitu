@@ -27,6 +27,7 @@
   gap: 16px;
   margin-top: 40px;
   & > div:first-child {
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -376,6 +377,7 @@
       border-radius: 100px;
       background: #a89f96;
       padding: 5px 16px;
+      cursor: pointer;
       span {
         color: #f2ece4;
         text-align: center;

@@ -18,12 +18,14 @@ function Chat() {
     }[]
   >([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isOut, setIsOut] = useState(false);
   const [userId] = useState(
     () => `user_${Math.random().toString(36).substr(2, 9)}`
   );
   const userTopic = `chat/messages`;
   const botId = "BOT";
-  useEffect(() => {
+
+  const handleConnectSocket = () => {
     const client = mqtt.connect("wss://test.mosquitto.org:8081");
     setClientSocket(client);
     setIsLoading(true);
@@ -57,6 +59,11 @@ function Chat() {
     client.on("end", () => {
       console.log("socket end::");
     });
+    return client;
+  };
+
+  useEffect(() => {
+    const client = handleConnectSocket();
 
     window.addEventListener("close", () => {
       client.end();
@@ -89,12 +96,28 @@ function Chat() {
     clientSocket?.publish(userTopic, JSON.stringify(message));
   };
 
-  if (isLoading)
+  if (isOut) {
     return (
-      <div>
-        <span>Đang kết nốt đến MQTT....</span>
+      <div style={{ height: 40 }}>
+        <button
+          className="button-common"
+          onClick={() => {
+            setIsOut(false);
+            handleConnectSocket();
+          }}
+        >
+          Tham gia
+        </button>
       </div>
     );
+  } else {
+    if (isLoading)
+      return (
+        <div>
+          <span>Đang kết nốt đến MQTT....</span>
+        </div>
+      );
+  }
 
   return (
     <div className="app">
@@ -103,7 +126,8 @@ function Chat() {
         sendMessage={handleSendMessage}
         onClose={() => {
           clientSocket?.end();
-          setClientSocket(null);
+          setIsOut(true);
+          setMessages([]);
         }}
       />
     </div>
