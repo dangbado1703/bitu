@@ -1,0 +1,305 @@
+@font-face {
+  font-family: Circular Std;
+  src: url(font/CircularStd-Bold.woff2) format("woff2"),
+    url(font/CircularStd-Bold.ttf) format("truetype"),
+    url(font/CircularStd-Bold.woff) format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Circular Std;
+  src: url(font/CircularStd-Medium.woff2) format("woff2"),
+    url(font/CircularStd-Medium.ttf) format("truetype"),
+    url(font/CircularStd-Medium.woff) format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Circular Std;
+  src: url(font/CircularStd-Book.woff2) format("woff2"),
+    url(font/CircularStd-Book.ttf) format("truetype"),
+    url(font/CircularStd-Book.woff) format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Circular Std, sans-serif;
+}
+
+.chat-container {
+  height: 300px;
+  overflow-y: auto;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  &__message {
+    display: flex;
+    gap: 4px;
+    align-items: end;
+  }
+  .message-box {
+    padding: 8px;
+    &__bot {
+      background-color: #2971f0;
+      border-radius: 4px;
+      color: white;
+    }
+    &__user {
+      border-radius: 4px;
+      background-color: #ccc;
+    }
+  }
+}
+
+.chat-bot,
+.chat-user {
+  display: flex;
+  align-items: center;
+  .name {
+    font-weight: 700;
+  }
+}
+
+.chat-bot {
+  justify-content: end;
+}
+
+.input-common {
+  width: 80%;
+  outline: none;
+  border: 1px solid #ccc;
+  padding: 0 20px;
+  border-radius: 4px;
+}
+
+img {
+  max-width: 100%;
+  height: 100%;
+}
+
+.button-common {
+  width: 20%;
+  outline: none;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+  .header {
+    display: flex;
+    padding: 12px 16px;
+    background-color: white;
+    align-items: center;
+    flex-shrink: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    .bitu-logo {
+      height: 36px;
+      width: 102px;
+    }
+  }
+  .body {
+    background-color: #f2ece4;
+    padding: 132px 278px;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    // justify-content: center;
+    .calendar {
+      width: 100%;
+      max-width: 1104px;
+      border-radius: 12px;
+      background: #fdf9f3;
+      flex-shrink: 0;
+      padding: 24px 25px 25px 24px;
+      margin: 0 auto;
+      .title {
+        display: flex;
+        align-items: center;
+        span {
+          font-size: 21px;
+          line-height: normal;
+          color: #1a202c;
+        }
+      }
+    }
+  }
+}
+
+.calendar__body {
+  display: flex;
+  gap: 24px;
+  margin-top: 13px;
+  align-items: flex-start;
+
+  .calendar__body-right {
+    padding: 12px;
+    border-radius: 16px;
+    border: 1px solid #edf2f7;
+    background: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-items: start;
+    gap: 12px;
+    max-width: 343px;
+    flex-shrink: 0;
+  }
+  .join-room {
+    & > span:first-child {
+      font-size: 17px;
+      color: #1a202c;
+    }
+    & > div:nth-child(2) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+.right-footer,
+.left-footer {
+  display: flex;
+  justify-content: flex-end;
+  & > button {
+    width: fit-content;
+    outline: none;
+    border: 1px solid #ff6d03;
+    padding: 5px 12px;
+    border-radius: 100px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    span {
+      color: #ff6d03;
+      text-align: center;
+      font-size: 17px;
+    }
+  }
+}
+
+.member-info {
+  margin-top: 12px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  .name {
+    font-size: 15px;
+    color: #1a202c;
+  }
+  .success {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 4px;
+    border-radius: 1000px;
+    background: #edf9f2;
+    color: #48bb78;
+    font-size: 15px;
+    height: 24px;
+    width: 115px;
+    & > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+    }
+  }
+}
+
+.time {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  & > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  span {
+    font-size: 15px;
+    color: #1a202c;
+  }
+}
+
+.calendar__body-left {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  border: 1px solid #edf2f7;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.04);
+  display: flex;
+  width: 100%;
+  .item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    &:first-child {
+      padding-top: 15px;
+    }
+    &:last-child {
+      padding-bottom: 15px;
+      .success {
+        justify-content: center;
+        background-color: #e9e9ea;
+        color: #1a202c;
+        width: fit-content;
+      }
+    }
+    &:nth-child(2) {
+      .success {
+        justify-content: center;
+        background-color: #eaf1fe;
+        color: #2971f0;
+      }
+    }
+    & > div:first-child {
+      display: flex;
+      align-items: center;
+    }
+
+    & > div:last-child {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .member-info {
+      margin: 0;
+    }
+    &:not(:last-child) {
+      border-bottom: 1px solid #edf2f7;
+    }
+    .time {
+      margin-right: 40px;
+      margin-left: 28px;
+    }
+  }
+}
+
+.lession {
+  font-size: 17px;
+  color: #1a202c;
+  font-weight: 700;
+}
