@@ -186,12 +186,12 @@
     background: #ff6d03;
   }
   .icon.left.not-first {
-    right: -5%;
+    right: -19px;
     top: 50%;
     transform: translateY(-50%);
   }
   .icon.right.not-first {
-    left: -5%;
+    left: -19px;
     top: 50%;
     transform: translateY(-50%);
   }
@@ -205,12 +205,18 @@
     top: 76px;
     transform: translateY(0);
   }
+  .icon.right.first.done {
+    left: -22px;
+  }
+  .icon.left.not-first.done {
+    right: -22px;
+  }
   .icon.left.first {
-    right: -5%;
+    right: -19px;
     top: 50%;
   }
   .icon.right.first {
-    left: -5%;
+    left: -19px;
     top: 50%;
   }
   &.right {
